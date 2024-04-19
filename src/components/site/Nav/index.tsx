@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { User } from "@clerk/nextjs/server";
+import { UserButton } from "@clerk/nextjs";
+import { ModeToggle } from "@/components/global/modeToggle";
 
 type Props = { user?: null | User };
 
@@ -9,7 +12,7 @@ const Nav = ({ user }: Props) => {
     <div className="fixed top-0 right-0 left-0 p-4 flex items-center justify-between z-10">
       <aside className="flex items-center gap-2">
         <Image
-          src={"/assets/plura-logo-svg"}
+          src={"/assets/plura-logo.svg"}
           width={40}
           height={40}
           alt="plura-logo"
@@ -31,6 +34,8 @@ const Nav = ({ user }: Props) => {
         >
           Login
         </Link>
+        <UserButton />
+        <ModeToggle />
       </aside>
     </div>
   );
